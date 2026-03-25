@@ -20,10 +20,11 @@ L'objectif est d'abstraire la complexité technique de l'API Docker en proposant
 
 Le service expose les routes suivantes pour la gestion complète du cycle de vie des environnements :
 
-| Méthode | Point de terminaison | Description | État |
-| :--- | :--- | :--- | :---: |
-| `POST` | `/deployments` | Lance un nouveau déploiement | ⏳ |
-| `GET` | `/deployments` | Liste l'historique de tous les services | ⏳ |
-| `GET` | `/deployments/{containerId}` | Récupère l'état précis d'un déploiement | ⏳ |
-| `GET` | `/deployments/{containerId}/logs` | Récupère les logs Docker du déploiement | ⏳ |
-| `DELETE` | `/deployments/{containerId}` | Interrompt un déploiement en cours | ⏳ |
+| Méthode | Point de terminaison | Description | 
+| :--- | :--- | :--- |
+| `GET` | `/deployments` | Lister les déploiements avec pagination | 
+| `POST` | `/deployments` | Déclencher un nouveau déploiement |
+| `GET` | `/deployments/{deploymentId}` | Consulter le détail d'un déploiement |
+| `PATCH` | `/deployments/{deploymentId}` | Mettre à jour l'état (PENDING, RUNNING, etc.) | 
+| `POST` | `/deployments/{deploymentId}/rollback` | Lancer un rollback sur un déploiement | 
+| `GET` | `/deployments/{deploymentId}/events` | Consulter les événements (logs/audit) |
