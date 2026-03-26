@@ -75,5 +75,5 @@ def get_deployment(deploymentId):
             return jsonify(updated_doc), 200
     
 
-if __name__ == '__app__':
+if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
