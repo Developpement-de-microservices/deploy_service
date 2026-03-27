@@ -14,4 +14,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY app/ .
 
 # Exécution du microservice
-CMD ["python", "main.py"]
+CMD ["python", "app.py"]
