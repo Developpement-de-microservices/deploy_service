@@ -7,7 +7,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-client = MongoClient(os.getenv("MONGO_URI", "mongodb://db:27017/"))
+client = MongoClient(os.getenv("MONGO_URI", "mongodb://db_deploy_service:27017/"))
 db = client.deployer_db
 deployments_col = db.deployments
 
