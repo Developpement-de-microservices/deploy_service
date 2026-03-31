@@ -38,6 +38,7 @@ def deployments():
             auth_check = authentification()
             if auth_check: 
                 return auth_check
+            
             deploy = deployments_col.find({}, {"_id": 0}).sort("createdAt", -1)
             list_deploy = list(deploy)
             return jsonify(list_deploy), 200
@@ -81,6 +82,10 @@ def deployments():
 def get_deployment(deploymentId):
     match request.method:
         case "GET":
+            auth_check = authentification()
+            if auth_check: 
+                return auth_check
+
             dep = deployments_col.find_one({"id": deploymentId}, {"_id": 0})
             if not dep:
                 return jsonify({"message": "Deploy not found!"}), 404
