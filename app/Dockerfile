@@ -15,5 +15,7 @@ EXPOSE 5003
 # Copie du code source
 COPY app/ .
 
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 CMD curl -f http://localhost:5003/deployments/health || exit 1
+
 # Exécution du microservice
 CMD ["python", "app.py"]
