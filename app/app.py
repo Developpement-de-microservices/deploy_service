@@ -48,6 +48,8 @@ def deployments():
                 if auth_check: 
                     return auth_check
                 
+                data = request.json
+
                 response_app = requests.get(f'http://localhost:8080/apps/{data["applicationId"]}')
                 if response_app.status_code == 404:
                     return jsonify({"message": "The app doesn't exist!"}), 404
