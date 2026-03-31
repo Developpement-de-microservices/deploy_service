@@ -10,6 +10,8 @@ WORKDIR /app
 COPY app/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+EXPOSE 5003
+
 # Copie du code source
 COPY app/ .
 
