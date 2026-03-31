@@ -56,11 +56,11 @@ def deployments():
                 }
 
 
-                response_app = requests.get(f'http://localhost:8080/apps/{data["applicationId"]}', headers=headers)
+                response_app = requests.get(f'http://proxy:8080/apps/{data["applicationId"]}', headers=headers)
                 if response_app.status_code == 404:
                     return jsonify({"message": "The app doesn't exist!"}), 404
                 
-                response_env = requests.get(f'http://localhost:8080/environments/{data["environmentId"]}', headers=headers)
+                response_env = requests.get(f'http://proxy:8080/environments/{data["environmentId"]}', headers=headers)
                 if response_env.status_code == 404:
                     return jsonify({"message": "The environment doesn't exist!"}), 404
 
