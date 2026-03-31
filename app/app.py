@@ -49,12 +49,18 @@ def deployments():
                     return auth_check
                 
                 data = request.json
+                token = "tokene1f93ed8-9778-4721-b06a-311f6a7dc415" 
+                headers = {
+                    'Authorization': f'Bearer {token}',
+                    'Content-Type': 'application/json'
+                }
 
-                response_app = requests.get(f'http://localhost:8080/apps/{data["applicationId"]}')
+
+                response_app = requests.get(f'http://localhost:8080/apps/{data["applicationId"]}', headers=headers)
                 if response_app.status_code == 404:
                     return jsonify({"message": "The app doesn't exist!"}), 404
                 
-                response_env = requests.get(f'http://localhost:8080/environments/{data["environmentId"]}')
+                response_env = requests.get(f'http://localhost:8080/environments/{data["environmentId"]}', headers=headers)
                 if response_env.status_code == 404:
                     return jsonify({"message": "The environment doesn't exist!"}), 404
 
