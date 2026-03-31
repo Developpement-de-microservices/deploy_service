@@ -57,11 +57,11 @@ def deployments():
 
 
                 response_app = requests.get(f'http://proxy/apps/{data["applicationId"]}', headers=headers)
-                if response_app.status_code == 404:
+                if response_app.status_code != 200:
                     return jsonify({"message": "The app doesn't exist!"}), 404
                 
                 response_env = requests.get(f'http://proxy/environments/{data["environmentId"]}', headers=headers)
-                if response_env.status_code == 404:
+                if response_env.status_code != 200:
                     return jsonify({"message": "The environment doesn't exist!"}), 404
 
                 if not all(k in data for k in ("applicationId", "versionId", "environmentId")):
