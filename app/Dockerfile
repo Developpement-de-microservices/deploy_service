@@ -1,7 +1,7 @@
 FROM python:3.11-alpine
 
 # Installation des dépendances système nécessaires pour MySQL et Docker SDK
-RUN apk add --no-cache gcc musl-dev mariadb-connector-c-dev pkgconfig
+RUN apk add --no-cache gcc musl-dev mariadb-connector-c-dev pkgconfig curl
 
 WORKDIR /app
 
