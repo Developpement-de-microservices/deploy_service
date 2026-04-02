@@ -49,11 +49,8 @@ def deployments():
                     return auth_check
                 
                 data = request.json
-                token = "tokene1f93ed8-9778-4721-b06a-311f6a7dc415" 
-                headers = {
-                    'Authorization': f'Bearer {token}',
-                    'Content-Type': 'application/json'
-                }
+                token = request.headers.get("Authorization", "").replace("Bearer ", "")
+                headers = {"Authorization": f"Bearer {token}"}
 
 
                 response_app = requests.get(f'http://proxy/apps/{data["applicationId"]}', headers=headers)
