@@ -25,6 +25,14 @@ Toutes les modifications notables de ce projet seront documentées dans ce fichi
 
 ---
 
+## [1.1] - 2026-04-02
+
+### Modification
+- **Modification de l'authentification vers les autres service**
+    - Utilisation du token de l'utilisateur au lieux d'un token fixe.
+
+---
+
 ## [Prochainement]
 
 ### 🚀 À venir
